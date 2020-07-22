@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';'
 
 import { Form } from '../../../components/form/form-style';
 import { Button } from '../../../components/button';
@@ -14,13 +16,14 @@ import {
   FormUsername,
 } from '../auth-style';
 
+import { selectCurrentUser } from '../../../redux/user/user.selector';
 import { register } from '../../../redux/user/user.action';
 import { setAlert } from '../../../redux/alert/alert.action';
 
 // Styles
 import img from '../../../assets/img.jpg';
 
-const Register = ({ register, setAlert }) => {
+const Register = ({ register, setAlert, user: { isAuthenticated} }) => {
   const [first_name, setFirstname] = useState('');
   const [last_name, setLastname] = useState('');
   const [email, setEmail] = useState('');
@@ -42,6 +45,11 @@ const Register = ({ register, setAlert }) => {
       });
     }
   };
+
+    if (isAuthenticated) {
+    return <Redirect to='/' />;
+  }
+
 
   return (
     <Container>
@@ -146,4 +154,8 @@ const Register = ({ register, setAlert }) => {
   );
 };
 
-export default connect(null, { register, setAlert })(Register);
+const mapStateToProps = createStructuredSelector({
+  user: selectCurrentUser,
+});
+
+export default connect(mapStateToProps, { register, setAlert })(Register);
