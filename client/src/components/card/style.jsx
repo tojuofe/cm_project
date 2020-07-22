@@ -40,12 +40,12 @@ export const ProductName = styled.div`
   position: absolute;
   top: 150px;
   color: #fff;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   padding: 3px 20px;
 
   & > :nth-child(2) {
-    padding: 0.3rem 0 0 5rem;
+    padding: 0.3rem 0 0 3rem;
   }
 `;
 

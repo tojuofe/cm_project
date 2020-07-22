@@ -29,21 +29,21 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile }) => {
   useEffect(() => {
     setFormData({
       date_of_birth:
-        loading || !profile.date_of_birth ? '' : profile.date_of_birth,
-      gender: loading || !profile.gender ? '' : profile.gender,
-      bank: loading || !profile.bank ? '' : profile.bank,
+        loading || !profile ? '' : profile.date_of_birth,
+      gender: loading || !profile ? '' : profile.gender,
+      bank: loading || !profile ? '' : profile.bank,
       account_name:
-        loading || !profile.account_name ? '' : profile.account_name,
+        loading || !profile ? '' : profile.account_name,
       account_number:
-        loading || !profile.account_number ? '' : profile.account_number,
-      bvn: loading || !profile.bvn ? '' : profile.bvn,
-      name: loading || !profile.next_of_kin ? '' : profile.next_of_kin.name,
+        loading || !profile ? '' : profile.account_number,
+      bvn: loading || !profile ? '' : profile.bvn,
+      name: loading || !profile ? '' : profile.next_of_kin.name,
       relationship:
-        loading || !profile.next_of_kin ? '' : profile.next_of_kin.relationship,
-      email: loading || !profile.next_of_kin ? '' : profile.next_of_kin.email,
-      phone: loading || !profile.next_of_kin ? '' : profile.next_of_kin.phone,
+        loading || !profile ? '' : profile.next_of_kin.relationship,
+      email: loading || !profile ? '' : profile.next_of_kin.email,
+      phone: loading || !profile ? '' : profile.next_of_kin.phone,
       nok_gender:
-        loading || !profile.next_of_kin ? '' : profile.next_of_kin.nok_gender,
+        loading || !profile ? '' : profile.next_of_kin.nok_gender,
     });
     // eslint-disable-next-line
   }, [loading]);
