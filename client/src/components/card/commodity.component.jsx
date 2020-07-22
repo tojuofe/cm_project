@@ -18,10 +18,14 @@ const Commodity = ({ item, getSingleCommodity, history }) => {
       <CardHeader src={item.img} />
       <ProductName>
         <h3>{item.product_name}</h3>
-        <h5>{item.unit_number} units left</h5>
+        <h5>{item.unit_number !== '0' && `${item.unit_number} units left`} </h5>
       </ProductName>
       <CardBody>
-        <NotifyTag>Now Selling</NotifyTag>
+        {item.unit_number !== '0' ? (
+          <NotifyTag>Now Selling</NotifyTag>
+        ) : (
+          <NotifyTag soldOut>Sold Out</NotifyTag>
+        )}
         <h4>{item.farm_name}</h4>
         <p>Buying Price: {item.buying_price}</p>
         <p>Selling Price: {item.selling_price}</p>

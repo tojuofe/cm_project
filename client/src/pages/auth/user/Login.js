@@ -6,7 +6,6 @@ import { createStructuredSelector } from 'reselect';
 import { login } from '../../../redux/user/user.action';
 import { selectCurrentUser } from '../../../redux/user/user.selector';
 
-import { FormInput } from '../../../components/inputField/inputField';
 import { Form } from '../../../components/form/form-style';
 import { Button } from '../../../components/button';
 import {
@@ -44,24 +43,25 @@ const Login = ({ login, user: { isAuthenticated } }) => {
         <Form onSubmit={onSubmit}>
           <h1>LOG IN</h1>
           <FormControl>
-            <FormInput
+            <input
               type='email'
               name='email'
               value={email}
               placeholder='Email Address'
               required
-              handleChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </FormControl>
 
           <FormControl>
-            <FormInput
+            <input
               type='password'
               name='password'
               value={password}
               placeholder='Password'
               required
-              handleChange={(e) => setPassword(e.target.value)}
+              minLength='6'
+              onChange={(e) => setPassword(e.target.value)}
             />
           </FormControl>
 

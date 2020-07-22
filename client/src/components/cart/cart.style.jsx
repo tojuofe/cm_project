@@ -4,7 +4,6 @@ const mainColor = '#08bb7a';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   height: auto;
   margin-top: 2rem;

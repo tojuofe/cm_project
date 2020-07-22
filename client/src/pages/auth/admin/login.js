@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { FormInput } from '../../../components/inputField/inputField';
 import { Form } from '../../../components/form/form-style';
 import { Button } from '../../../components/button';
 import { Container, CustomCard, FormControl } from '../auth-style';
@@ -26,22 +25,25 @@ const Login = ({ login }) => {
         <Form onSubmit={onSubmit}>
           <h1>ADMIN LOGIN</h1>
           <FormControl>
-            <FormInput
+            <input
               type='email'
               name='email'
               value={email}
+              required
               placeholder='Email Address'
-              handleChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </FormControl>
 
           <FormControl>
-            <FormInput
+            <input
               type='password'
               name='password'
               value={password}
               placeholder='Password'
-              handleChange={(e) => setPassword(e.target.value)}
+              required
+              minLength='6'
+              onChange={(e) => setPassword(e.target.value)}
             />
           </FormControl>
 

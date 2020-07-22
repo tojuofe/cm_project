@@ -75,14 +75,13 @@ const UploadForm = ({ createCommodity }) => {
         </FormControl>
 
         <FormControl>
-          <input
-            type='text'
+          <textarea
             name='description'
             value={description}
             placeholder='Description'
             required
             onChange={(e) => setDescription(e.target.value)}
-          />
+          ></textarea>
         </FormControl>
 
         <FormControl>

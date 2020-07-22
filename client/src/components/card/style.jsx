@@ -1,6 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const mainColor = '#08bb7a';
+const mainColor = css`
+  background: #08bb7a;
+`;
+const soldColor = css`
+  background: #fe0000;
+`;
 
 export const CardContainer = styled.div`
   display: grid;
@@ -45,7 +50,7 @@ export const ProductName = styled.div`
   padding: 3px 20px;
 
   & > :nth-child(2) {
-    padding: 0.3rem 0 0 3rem;
+    padding: 0.3rem 0 0 3.5rem;
   }
 `;
 
@@ -68,8 +73,17 @@ export const CardBody = styled.div`
   }
 `;
 
+const getColor = (props) => {
+  if (props.soldOut) {
+    return soldColor;
+  }
+  return mainColor;
+};
+
 export const NotifyTag = styled.div`
-  background: ${mainColor};
+  position: absolute;
+  top: 10px;
+  right: 10px;
   border-radius: 50px;
   font-size: 12px;
   font-weight: bold;
@@ -77,6 +91,8 @@ export const NotifyTag = styled.div`
   margin: 0;
   padding: 2px 10px;
   text-transform: uppercase;
+
+  ${getColor}
 `;
 
 export const CheckOutContainer = styled.div`

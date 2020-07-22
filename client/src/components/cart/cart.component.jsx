@@ -14,6 +14,8 @@ import { createStall } from '../../redux/stall/stall.action';
 import { clearCart } from '../../redux/cart/cart.action';
 import CartItem from './cartItem.component';
 import { Container, Table, Card } from './cart.style';
+import { ProductContainer } from '../navbar/style';
+import SideNav from '../navbar/sideNav';
 
 const Cart = ({
   cartItems,
@@ -36,43 +38,52 @@ const Cart = ({
     if (totalCount > currentWallet) {
       setAlert('Insufficient Funds', 'error');
     } else {
-      createStall(cartItems);
-      updateAmount(amount);
-      setAlert('Product Purchased, Please Check Your Stall', 'success');
-      clearCart();
+      if (cartItems.length > 0) {
+        if (window.confirm(`Pay NGN ${totalCount} for product on Cart`)) {
+          createStall(cartItems);
+          updateAmount(amount);
+          setAlert('Product Purchased, Please Check Your Stall', 'success');
+          clearCart();
+        }
+      } else {
+        setAlert('Cart is empty', 'error');
+      }
     }
   };
 
   return (
-    <Container>
-      <Card>
-        <Table>
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Product Name</th>
-              <th>Unit Number</th>
-              <th>Buying Price</th>
-              <th>Selling Price</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItems.map((item) => (
-              <CartItem key={item.id} item={item} />
-            ))}
-          </tbody>
-        </Table>
-        <div className='cart'>
-          <h4 className='left'>Total: NGN {totalCount}</h4>
-          <input
-            type='button'
-            value='Proceed to Payment'
-            onClick={onCheckBalance}
-          />
-        </div>
-      </Card>
-    </Container>
+    <ProductContainer>
+      <SideNav />
+      <Container>
+        <Card>
+          <Table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Unit Number</th>
+                <th>Buying Price</th>
+                <th>Selling Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((item) => (
+                <CartItem key={item.id} item={item} />
+              ))}
+            </tbody>
+          </Table>
+          <div className='cart'>
+            <h4 className='left'>Total: NGN {totalCount}</h4>
+            <input
+              type='button'
+              value='Proceed to Payment'
+              onClick={onCheckBalance}
+            />
+          </div>
+        </Card>
+      </Container>
+    </ProductContainer>
   );
 };
 

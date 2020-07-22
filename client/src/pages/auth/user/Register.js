@@ -23,7 +23,7 @@ import { setAlert } from '../../../redux/alert/alert.action';
 // Styles
 import img from '../../../assets/img.jpg';
 
-const Register = ({ register, setAlert, user: { isAuthenticated} }) => {
+const Register = ({ register, setAlert, user: { isAuthenticated } }) => {
   const [first_name, setFirstname] = useState('');
   const [last_name, setLastname] = useState('');
   const [email, setEmail] = useState('');
@@ -46,10 +46,9 @@ const Register = ({ register, setAlert, user: { isAuthenticated} }) => {
     }
   };
 
-    if (isAuthenticated) {
+  if (isAuthenticated) {
     return <Redirect to='/' />;
   }
-
 
   return (
     <Container>
@@ -130,11 +129,9 @@ const Register = ({ register, setAlert, user: { isAuthenticated} }) => {
               <label>
                 <input type='checkbox' className='filled-in' required />
                 <span>
-                  I agree to the
-                  <CustomLink to='/termsandconditions'>
-                    {' '}
-                    Terms and Conditions
-                  </CustomLink>
+                  Please agree to
+                  <CustomLink to='/termsandconditions'> terms</CustomLink> to
+                  register
                 </span>
               </label>
             </div>

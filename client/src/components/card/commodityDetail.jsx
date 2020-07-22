@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectCurrentUser } from '../../redux/user/user.selector';
 import { addCart, removeUnit } from '../../redux/cart/cart.action';
+import { setAlert } from '../../redux/alert/alert.action';
 
 import {
   Card,
@@ -23,6 +24,7 @@ const CommodityDetail = ({
   user: { isAuthenticated, user },
   addCart,
   removeUnit,
+  setAlert,
 }) => {
   const buyingCost = +commodityItem.buying_price;
   const sellingCost = +commodityItem.selling_price;
@@ -60,6 +62,14 @@ const CommodityDetail = ({
       id: commodityItem._id,
       unit_number: unitAvailable,
     });
+
+    setAlert('Added to Cart', 'success');
+  };
+
+  const onChange = (e) => {
+    if (e.target.value <= +commodityItem.unit_number) {
+      setUnit(e.target.value);
+    }
   };
 
   return (
@@ -69,12 +79,16 @@ const CommodityDetail = ({
         <ProductName>
           <h3>{commodityItem.product_name}</h3>
           <h5>
-            {`${unit_number ? availableUnit : commodityItem.unit_number}`} units
-            left
+            {commodityItem.unit_number !== '0' &&
+              `${commodityItem.unit_number} units left`}{' '}
           </h5>
         </ProductName>
         <CardBody>
-          <NotifyTag>Now Selling</NotifyTag>
+          {commodityItem.unit_number !== '0' ? (
+            <NotifyTag>Now Selling</NotifyTag>
+          ) : (
+            <NotifyTag soldOut>Sold Out</NotifyTag>
+          )}
           <h4>{commodityItem.farm_name}</h4>
           <p>Buying Price: {commodityItem.buying_price}</p>
           <p>Selling Price: {commodityItem.selling_price}</p>
@@ -84,15 +98,18 @@ const CommodityDetail = ({
       <CheckOutContainer>
         <CheckOut>
           <h4>Cost Per Units: {commodityItem.buying_price}</h4>
-          <h4>
-            Enter Unit
-            <input
-              type='number'
-              name='unit_number'
-              value={unit_number}
-              onChange={(e) => setUnit(e.target.value)}
-            />
-          </h4>
+          {commodityItem.unit_number !== '0' && (
+            <h4>
+              Enter Unit
+              <input
+                type='number'
+                name='unit_number'
+                value={unit_number}
+                onChange={onChange}
+              />
+            </h4>
+          )}
+
           <h4>
             Cost NGN:
             <input
@@ -144,6 +161,6 @@ const mapStateToProps = createStructuredSelector({
   user: selectCurrentUser,
 });
 
-export default connect(mapStateToProps, { addCart, removeUnit })(
+export default connect(mapStateToProps, { addCart, removeUnit, setAlert })(
   CommodityDetail
 );
