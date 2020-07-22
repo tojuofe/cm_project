@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';'
+import { createStructuredSelector } from 'reselect';
 
 import { Form } from '../../../components/form/form-style';
 import { Button } from '../../../components/button';
