@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
 import SideNavbar from '../navbar/sideNav';
 import { ProductContainer } from '../navbar/style';
 import ProfileForm from './profileForm.component';
 
-const Profile = () => (
-  <ProductContainer>
-    <SideNavbar />
-    <ProfileForm />
-  </ProductContainer>
-);
+import { getProfile } from '../../redux/profile/profile.action';
 
-export default Profile;
+const Profile = ({ getProfile }) => {
+  useEffect(() => {
+    getProfile();
+  }, [getProfile]);
+  return (
+    <ProductContainer>
+      <SideNavbar />
+      <ProfileForm />
+    </ProductContainer>
+  );
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  getProfile: () => dispatch(getProfile()),
+});
+
+export default connect(null, mapDispatchToProps)(Profile);

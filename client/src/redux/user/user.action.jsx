@@ -2,7 +2,9 @@ import {
   USER_LOADED,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  CLEAR_PROFILE,
   CLEAR_WALLET,
+  CLEAR_STALL,
   AUTH_ERROR,
   LOGOUT,
 } from './user.types';
@@ -109,5 +111,7 @@ export const register = ({
 // LOGOUT
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
+  dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: CLEAR_WALLET });
+  dispatch({ type: CLEAR_STALL });
 };

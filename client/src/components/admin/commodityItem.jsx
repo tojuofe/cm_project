@@ -14,6 +14,7 @@ const CommodityItem = ({ item, getCurrentCommodity, history }) => {
   return (
     <tr className='priority-200'>
       <td>{item.product_name}</td>
+      <td>{item.starting_unit}</td>
       <td>{item.unit_number}</td>
       <td>{item.farm_name}</td>
       <td>{item.buying_price}</td>

@@ -19,6 +19,7 @@ const Commodity = ({ commodityItems, getCommodity }) => {
         <thead>
           <tr>
             <th>Product Name</th>
+            <th>Starting Unit</th>
             <th>Unit Left</th>
             <th>Farm Name</th>
             <th>Buying Price</th>

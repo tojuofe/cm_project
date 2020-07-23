@@ -49,6 +49,7 @@ export const createCommodity = ({
   farm_name,
   description,
   unit_number,
+  starting_unit,
   buying_price,
   selling_price,
   duration,
@@ -65,6 +66,7 @@ export const createCommodity = ({
     formData.append('farm_name', farm_name);
     formData.append('description', description);
     formData.append('unit_number', unit_number);
+    formData.append('starting_unit', starting_unit);
     formData.append('buying_price', buying_price);
     formData.append('selling_price', selling_price);
     formData.append('duration', duration);

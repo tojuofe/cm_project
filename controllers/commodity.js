@@ -61,6 +61,7 @@ exports.postCommodity = (req, res, next) =>
           selling_price,
           duration,
           unit_number,
+          starting_unit,
         } = req.body;
 
         const commodityFields = {};
@@ -72,6 +73,7 @@ exports.postCommodity = (req, res, next) =>
         if (selling_price) commodityFields.selling_price = selling_price;
         if (duration) commodityFields.duration = duration;
         if (unit_number) commodityFields.unit_number = unit_number;
+        if (starting_unit) commodityFields.starting_unit = starting_unit;
 
         let commodity = new Commodity(commodityFields);
         cloudinary.v2.uploader.upload(file.path).then((result) => {

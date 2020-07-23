@@ -8,7 +8,6 @@ import CustomContainer from '../container';
 import logo from '../../assets/logo.jpg';
 
 import { logout, loadUser } from '../../redux/user/user.action';
-import { getProfile } from '../../redux/profile/profile.action';
 import { selectCurrentUser } from '../../redux/user/user.selector';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 
@@ -17,15 +16,12 @@ const Navbar = ({
   user: { isAuthenticated, user, token },
   loadUser,
   cartItems,
-  getProfile,
-  getWallet,
 }) => {
   useEffect(() => {
     if (token !== null) {
       loadUser();
     }
-    getProfile();
-  }, [loadUser, token, getProfile]);
+  }, [loadUser, token]);
 
   return (
     <CustomBackground>
@@ -80,7 +76,6 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   loadUser: () => dispatch(loadUser()),
-  getProfile: () => dispatch(getProfile()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

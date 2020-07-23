@@ -29,6 +29,9 @@ const CommoditySchema = new mongoose.Schema({
   unit_number: {
     type: String,
   },
+  starting_unit: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

@@ -77,13 +77,13 @@ const EditForm = ({ current, updateCommodity, loadAdmin, history }) => {
 
         <FormControl>
           <label>Description</label>
-          <input
-            type='text'
+          <textarea
             name='description'
-            value={description || ''}
+            value={description}
             placeholder='Description'
+            required
             onChange={(e) => setDescription(e.target.value)}
-          />
+          ></textarea>
         </FormControl>
 
         <FormControl>
