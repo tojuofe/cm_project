@@ -141,7 +141,9 @@ const CommodityDetail = ({
             />
           </h4>
           {isAuthenticated ? (
-            <Button onClick={addToCart}>Add To Cart</Button>
+            commodityItem.unit_number !== '0' && (
+              <Button onClick={addToCart}>Add To Cart</Button>
+            )
           ) : (
             <Link to='/register'>
               <Button>Sign Up To Buy</Button>
