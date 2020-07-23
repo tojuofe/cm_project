@@ -20,7 +20,6 @@ const UploadForm = ({ createCommodity }) => {
   const [description, setDescription] = useState('');
   const [product_name, setProductname] = useState('');
   const [unit_number, setUnitNumber] = useState('');
-  const [starting_unit, setStartingUnit] = useState('');
   const [buying_price, setBuyingPrice] = useState('');
   const [selling_price, setSellingPrice] = useState('');
   const [duration, setDuration] = useState('');
@@ -29,6 +28,7 @@ const UploadForm = ({ createCommodity }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const starting_unit = unit_number;
     createCommodity({
       image,
       farm_name,
@@ -47,7 +47,6 @@ const UploadForm = ({ createCommodity }) => {
     setDescription('');
     setProductname('');
     setUnitNumber('');
-    setStartingUnit('');
     setBuyingPrice('');
     setSellingPrice('');
     setDuration('');
@@ -106,17 +105,6 @@ const UploadForm = ({ createCommodity }) => {
             placeholder='Number of Units'
             required
             onChange={(e) => setUnitNumber(e.target.value)}
-          />
-        </FormControl>
-
-        <FormControl>
-          <input
-            type='number'
-            name='starting_unit'
-            value={starting_unit}
-            placeholder='Starting Units'
-            required
-            onChange={(e) => setStartingUnit(e.target.value)}
           />
         </FormControl>
 

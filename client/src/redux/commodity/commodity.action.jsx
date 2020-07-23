@@ -59,6 +59,7 @@ export const createCommodity = ({
       'Content-Type': 'multipart/form-data',
     },
   };
+
   try {
     const formData = new FormData();
     formData.append('image', image);
