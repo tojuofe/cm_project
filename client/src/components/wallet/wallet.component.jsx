@@ -23,7 +23,7 @@ const Wallet = ({ user: { user }, getWallet, wallet }) => {
         <Card className='mt-1'>
           <div className=''>
             <p>Wallet Balance</p>
-            <h3 className='fs-2'>NGN {wallet && wallet.amount}</h3>
+            <h3 className='fs-2'>NGN {(wallet && wallet.amount) || 0}</h3>
             <div className='divider'></div>
             <h3 className='mt-1'>
               Wallet - AFWIN/

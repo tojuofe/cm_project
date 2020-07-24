@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const CommoditySchema = new mongoose.Schema({
   user: {
@@ -38,4 +39,5 @@ const CommoditySchema = new mongoose.Schema({
   },
 });
 
+CommoditySchema.plugin(mongoosePaginate);
 module.exports = mongoose.model('commoditie', CommoditySchema);

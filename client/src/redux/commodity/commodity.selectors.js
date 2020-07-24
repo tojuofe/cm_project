@@ -4,6 +4,11 @@ const selectCommodity = (state) => state.commodity;
 
 export const selectCommodityItems = createSelector(
   [selectCommodity],
+  (commodity) => commodity.commodityItems.docs
+);
+
+export const selectCommodityNav = createSelector(
+  [selectCommodity],
   (commodity) => commodity.commodityItems
 );
 

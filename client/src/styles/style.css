@@ -56,6 +56,13 @@ a {
   display: inline-block;
 }
 
+.btnCount {
+  display: flex;
+  justify-content: space-between;
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
 small {
   display: block;
   font-size: 12px;

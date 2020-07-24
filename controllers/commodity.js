@@ -8,11 +8,21 @@ require('../services/cloudinary');
 // @access    Private
 exports.getAllCommodity = async (req, res, next) => {
   try {
-    const commodity = await Commodity.find();
+    const { page, perPage } = req.query;
+    const options = {
+      page: parseInt(page, 10) || 1,
+      limit: parseInt(perPage, 10) || 1,
+      sort: {
+        createdAt: -1,
+      },
+    };
+    const commodity = await Commodity.paginate({}, options);
 
-    res
-      .status(200)
-      .json({ success: true, count: commodity.length, data: commodity });
+    res.status(200).json({
+      success: true,
+      count: commodity.docs.length,
+      data: commodity,
+    });
   } catch (err) {
     return res.status(500).json({
       success: false,
