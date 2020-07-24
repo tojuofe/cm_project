@@ -7,10 +7,10 @@ export const selectCommodityItems = createSelector(
   (commodity) => commodity.commodityItems
 );
 
-// export const selectCommodityNav = createSelector(
-//   [selectCommodity],
-//   (commodity) => commodity.commodityItems
-// );
+export const selectCommodityNav = createSelector(
+  [selectCommodity],
+  (commodity) => commodity.commodityItems
+);
 
 export const selectCommodityItem = createSelector(
   [selectCommodity],
