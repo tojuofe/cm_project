@@ -15,6 +15,7 @@ export const CardContainer = styled.div`
   width: 940px;
   max-width: 100%;
   margin-top: 1rem;
+  margin-bottom: 20px;
 `;
 
 export const ProductContainer = styled.div`
