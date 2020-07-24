@@ -10,7 +10,8 @@ import { selectCommodityItems } from '../../redux/commodity/commodity.selectors'
 
 const Commodity = ({
   getCommodity,
-  commodityItems: { docs, nextPage, prevPage },
+  commodityItems,
+  // commodityItems: { docs, nextPage, prevPage },
 }) => {
   useEffect(() => {
     getCommodity();
@@ -19,11 +20,11 @@ const Commodity = ({
   return (
     <Fragment>
       <CardContainer>
-        {docs.map((item) => (
+        {commodityItems.map((item) => (
           <CommodityItem key={item._id} item={item} />
         ))}
       </CardContainer>
-      <div className='btnCount mt-1'>
+      {/* <div className='btnCount mt-1'>
         {prevPage !== null && (
           <input
             type='button'
@@ -38,7 +39,7 @@ const Commodity = ({
             onClick={() => getCommodity(nextPage)}
           />
         )}
-      </div>
+      </div> */}
     </Fragment>
   );
 };
