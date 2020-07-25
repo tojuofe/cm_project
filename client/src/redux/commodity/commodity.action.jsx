@@ -13,8 +13,8 @@ import { setAlert } from '../alert/alert.action';
 // GET ALL COMMODITY
 export const getCommodity = (count) => async (dispatch) => {
   try {
-    // const res = await axios.get(`/api/commodity?perPage=6&page=${count || 1}`);
-    const res = await axios.get(`/api/commodity`);
+    const res = await axios.get(`/api/commodity?perPage=6&page=${count || 1}`);
+    // const res = await axios.get(`/api/commodity`);
 
     dispatch({
       type: GET_ALL_COMMODITY,

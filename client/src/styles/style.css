@@ -59,7 +59,7 @@ a {
 .btnCount {
   display: flex;
   justify-content: space-between;
-  max-width: 150px;
+  max-width: 200px;
   margin-bottom: 10px;
 }
 
