@@ -18,6 +18,8 @@ export const getCommodity = (count) => async (dispatch) => {
     dispatch({
       type: GET_ALL_COMMODITY,
       payload: res.data.data,
+      totalPage: res.data.totalPages,
+      currentPage: res.data.currentPage,
     });
   } catch (err) {
     dispatch({

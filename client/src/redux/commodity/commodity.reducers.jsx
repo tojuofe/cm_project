@@ -9,20 +9,24 @@ import {
 } from './commodity.types';
 
 const initialState = {
-  commodityItems: {},
+  commodityItems: [],
   commodityItem: null,
+  totalPages: Number,
+  currentPages: Number,
   current: null,
   loading: true,
   error: {},
 };
 
 export default (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type, payload, totalPage, currentPage } = action;
   switch (type) {
     case GET_ALL_COMMODITY:
       return {
         ...state,
         commodityItems: payload,
+        totalPages: totalPage,
+        currentPages: currentPage,
         loading: false,
       };
     case GET_COMMODITY:

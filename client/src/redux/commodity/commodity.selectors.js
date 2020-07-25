@@ -7,6 +7,16 @@ export const selectCommodityItems = createSelector(
   (commodity) => commodity.commodityItems
 );
 
+export const selectCommodityTotalPages = createSelector(
+  [selectCommodity],
+  (commodity) => commodity.totalPages
+);
+
+export const selectCommodityCurrentPage = createSelector(
+  [selectCommodity],
+  (commodity) => commodity.currentPages
+);
+
 export const selectCommodityItem = createSelector(
   [selectCommodity],
   (commodity) => commodity.commodityItem

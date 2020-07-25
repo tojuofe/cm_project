@@ -6,11 +6,17 @@ import { CardContainer } from './style';
 import CommodityItem from './commodity.component';
 
 import { getCommodity } from '../../redux/commodity/commodity.action';
-import { selectCommodityItems } from '../../redux/commodity/commodity.selectors';
+import {
+  selectCommodityItems,
+  selectCommodityTotalPages,
+  selectCommodityCurrentPage,
+} from '../../redux/commodity/commodity.selectors';
 
 const Commodity = ({
   getCommodity,
-  commodityItems: { docs, prevPage, nextPage },
+  commodityItems,
+  totalPages,
+  currentPage,
 }) => {
   useEffect(() => {
     getCommodity();
@@ -19,23 +25,23 @@ const Commodity = ({
   return (
     <Fragment>
       <CardContainer>
-        {docs.map((item) => (
+        {commodityItems.map((item) => (
           <CommodityItem key={item._id} item={item} />
         ))}
       </CardContainer>
       <div className='btnCount mt-1'>
-        {prevPage !== null && (
+        {currentPage > 1 && (
           <input
             type='button'
             value='&#10094;&#10094; Previous'
-            onClick={() => getCommodity(prevPage)}
+            onClick={() => getCommodity(currentPage - 1)}
           />
         )}
-        {nextPage !== null && (
+        {currentPage !== totalPages && (
           <input
             type='button'
             value='Next &#10095;&#10095;'
-            onClick={() => getCommodity(nextPage)}
+            onClick={() => getCommodity(currentPage + 1)}
           />
         )}
       </div>
@@ -45,7 +51,7 @@ const Commodity = ({
 
 Commodity.propTypes = {
   getCommodity: PropTypes.func,
-  commodityItems: PropTypes.object,
+  commodityItems: PropTypes.array,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -54,6 +60,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = createStructuredSelector({
   commodityItems: selectCommodityItems,
+  totalPages: selectCommodityTotalPages,
+  currentPage: selectCommodityCurrentPage,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Commodity);
