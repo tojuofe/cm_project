@@ -17,8 +17,7 @@ export const getCommodity = (count) => async (dispatch) => {
 
     dispatch({
       type: GET_ALL_COMMODITY,
-      payload: res.data.data.docs,
-      navItem: res.data.data,
+      payload: res.data.data,
     });
   } catch (err) {
     dispatch({
