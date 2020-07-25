@@ -9,7 +9,8 @@ import {
 } from './commodity.types';
 
 const initialState = {
-  commodityItems: {},
+  commodityItems: [],
+  navCommodityItem: {},
   commodityItem: null,
   current: null,
   loading: true,
@@ -17,12 +18,13 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type, payload, navItem } = action;
   switch (type) {
     case GET_ALL_COMMODITY:
       return {
         ...state,
         commodityItems: payload,
+        navCommodityItem: navItem,
         loading: false,
       };
     case GET_COMMODITY:

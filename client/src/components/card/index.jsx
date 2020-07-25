@@ -6,11 +6,15 @@ import { CardContainer } from './style';
 import CommodityItem from './commodity.component';
 
 import { getCommodity } from '../../redux/commodity/commodity.action';
-import { selectCommodityItems } from '../../redux/commodity/commodity.selectors';
+import {
+  selectCommodityItems,
+  selectCommodityNav,
+} from '../../redux/commodity/commodity.selectors';
 
 const Commodity = ({
   getCommodity,
-  commodityItems: { docs, prevPage, nextPage },
+  commodityItems,
+  nav: { prevPage, nextPage },
 }) => {
   useEffect(() => {
     getCommodity();
@@ -19,7 +23,7 @@ const Commodity = ({
   return (
     <Fragment>
       <CardContainer>
-        {docs.map((item) => (
+        {commodityItems.map((item) => (
           <CommodityItem key={item._id} item={item} />
         ))}
       </CardContainer>
@@ -45,7 +49,7 @@ const Commodity = ({
 
 Commodity.propTypes = {
   getCommodity: PropTypes.func,
-  commodityItems: PropTypes.object,
+  commodityItems: PropTypes.array,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -54,6 +58,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = createStructuredSelector({
   commodityItems: selectCommodityItems,
+  nav: selectCommodityNav,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Commodity);

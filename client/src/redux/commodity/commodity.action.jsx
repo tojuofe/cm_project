@@ -14,11 +14,11 @@ import { setAlert } from '../alert/alert.action';
 export const getCommodity = (count) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/commodity?perPage=6&page=${count || 1}`);
-    // const res = await axios.get(`/api/commodity`);
 
     dispatch({
       type: GET_ALL_COMMODITY,
-      payload: res.data.data,
+      payload: res.data.data.docs,
+      navItem: res.data.data,
     });
   } catch (err) {
     dispatch({

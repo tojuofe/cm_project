@@ -9,7 +9,7 @@ export const selectCommodityItems = createSelector(
 
 export const selectCommodityNav = createSelector(
   [selectCommodity],
-  (commodity) => commodity.commodityItems
+  (commodity) => commodity.navCommodityItem
 );
 
 export const selectCommodityItem = createSelector(
