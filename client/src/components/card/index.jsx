@@ -10,7 +10,7 @@ import { selectCommodityItems } from '../../redux/commodity/commodity.selectors'
 
 const Commodity = ({
   getCommodity,
-  commodityItems: { docs, nextPage, prevPage },
+  commodityItems: { docs, prevPage, nextPage },
 }) => {
   useEffect(() => {
     getCommodity();
@@ -45,7 +45,7 @@ const Commodity = ({
 
 Commodity.propTypes = {
   getCommodity: PropTypes.func,
-  commodityItems: PropTypes.array,
+  commodityItems: PropTypes.object,
 };
 
 const mapDispatchToProps = (dispatch) => ({

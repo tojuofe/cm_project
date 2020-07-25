@@ -9,7 +9,7 @@ import {
 } from './commodity.types';
 
 const initialState = {
-  commodityItems: [],
+  commodityItems: {},
   commodityItem: null,
   current: null,
   loading: true,
