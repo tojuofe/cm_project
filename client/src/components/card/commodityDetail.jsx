@@ -153,7 +153,7 @@ const CommodityDetail = ({
       </CheckOutContainer>
       <div>
         <h2>{commodityItem.product_name}</h2>
-        <h4>{commodityItem.description}</h4>
+        <h4 className='w-20'>{commodityItem.description}</h4>
       </div>
     </Fragment>
   );

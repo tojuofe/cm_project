@@ -32,6 +32,10 @@ a {
   padding-right: 2rem;
 }
 
+.w-20 {
+  max-width: 20rem;
+}
+
 .card {
   display: flex;
   padding-right: 1rem;
