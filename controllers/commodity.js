@@ -8,22 +8,31 @@ require('../services/cloudinary');
 // @access    Private
 exports.getAllCommodity = async (req, res, next) => {
   try {
-    // const { page, perPage } = req.query;
+    const { page = 1, limit = 6 } = req.query;
     // const options = {
     //   page: parseInt(page, 10) || 1,
-    //   limit: parseInt(perPage, 10) || 1,
+    //   limit: parseInt(perPage, 10) || 10,
     //   sort: {
     //     createdAt: -1,
     //   },
     // };
-    const commodity = await Commodity.find().sort({ createdAt: -1 });
+    const commodity = await Commodity.find()
+      .sort({ createdAt: -1 })
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      .exec();
+
+    const count = await Commodity.countDocuments();
 
     res.status(200).json({
       success: true,
-      count: commodity.length,
+      count,
+      totalPages: Math.ceil(count / limit),
+      currentPage: +page,
       data: commodity,
     });
   } catch (err) {
+    console.log(err.message);
     return res.status(500).json({
       success: false,
       error: 'Server Error',

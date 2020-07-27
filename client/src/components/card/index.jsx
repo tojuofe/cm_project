@@ -6,12 +6,17 @@ import { CardContainer } from './style';
 import CommodityItem from './commodity.component';
 
 import { getCommodity } from '../../redux/commodity/commodity.action';
-import { selectCommodityItems } from '../../redux/commodity/commodity.selectors';
+import {
+  selectCommodityItems,
+  selectCommodityTotalPages,
+  selectCommodityCurrentPage,
+} from '../../redux/commodity/commodity.selectors';
 
 const Commodity = ({
   getCommodity,
   commodityItems,
-  // commodityItems: { docs, nextPage, prevPage },
+  totalPages,
+  currentPage,
 }) => {
   useEffect(() => {
     getCommodity();
@@ -24,22 +29,22 @@ const Commodity = ({
           <CommodityItem key={item._id} item={item} />
         ))}
       </CardContainer>
-      {/* <div className='btnCount mt-1'>
-        {prevPage !== null && (
+      <div className='btnCount mt-1'>
+        {currentPage > 1 && (
           <input
             type='button'
             value='&#10094;&#10094; Previous'
-            onClick={() => getCommodity(prevPage)}
+            onClick={() => getCommodity(currentPage - 1)}
           />
         )}
-        {nextPage !== null && (
+        {currentPage !== totalPages && (
           <input
             type='button'
             value='Next &#10095;&#10095;'
-            onClick={() => getCommodity(nextPage)}
+            onClick={() => getCommodity(currentPage + 1)}
           />
         )}
-      </div> */}
+      </div>
     </Fragment>
   );
 };
@@ -50,11 +55,13 @@ Commodity.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getCommodity: () => dispatch(getCommodity()),
+  getCommodity: (count) => dispatch(getCommodity(count)),
 });
 
 const mapStateToProps = createStructuredSelector({
   commodityItems: selectCommodityItems,
+  totalPages: selectCommodityTotalPages,
+  currentPage: selectCommodityCurrentPage,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Commodity);

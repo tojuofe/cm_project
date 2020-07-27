@@ -48,5 +48,22 @@ export const Alert = styled.div`
     }
   }
 
+  @media screen and (max-width: 768px) {
+    @keyframes show_slide {
+      0% {
+        transform: translateX(0%);
+      }
+      40% {
+        transform: translateX(-5%);
+      }
+      80% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-5%);
+      }
+    }
+  }
+
   ${getAlertStyle}
 `;

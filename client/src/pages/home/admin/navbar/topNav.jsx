@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { CustomNavbar, CustomBackground } from './style';
+import MediaNav from './mediaNav';
+
+import { CustomNavbar, CustomBackground, Nav } from './style';
 import CustomContainer from '../../../../components/container';
 import logo from '../../../../assets/logo.jpg';
 
@@ -19,16 +21,19 @@ const Navbar = ({ logout, loadAdmin }) => {
       <CustomContainer>
         <CustomNavbar>
           <img src={logo} alt='logo' className='logo' />
-          <ul>
-            <li>
-              <h4>Welcome, Admin</h4>
-            </li>
-            <li>
-              <Link to='#!' onClick={logout} className='logout'>
-                LOGOUT
-              </Link>
-            </li>
-          </ul>
+          <Nav>
+            <ul>
+              <li>
+                <h4>Welcome, Admin</h4>
+              </li>
+              <li>
+                <Link to='#!' onClick={logout} className='logout'>
+                  LOGOUT
+                </Link>
+              </li>
+            </ul>
+          </Nav>
+          <MediaNav />
         </CustomNavbar>
       </CustomContainer>
     </CustomBackground>

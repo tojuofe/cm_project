@@ -21,13 +21,13 @@ const CartItem = ({ item, removeCart, commodityItems, addUnit }) => {
   return (
     <Fragment>
       <tr className='priority-200'>
-        <td>
+        <td data-label='Image'>
           <img src={item.img} alt='' />
         </td>
-        <td>{item.productName}</td>
-        <td>{item.unit_number}</td>
-        <td>{item.costBuying}</td>
-        <td>{item.costReturn}</td>
+        <td data-label='Product Name'>{item.productName}</td>
+        <td data-label='Unit Number'>{item.unit_number}</td>
+        <td data-label='Buying Price'>{item.costBuying}</td>
+        <td data-label='Selling Price'>{item.costReturn}</td>
         <td>
           <button className='edit' onClick={onUnit}>
             <i className='fas fa-times'></i>

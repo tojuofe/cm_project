@@ -7,6 +7,10 @@ export const CustomBackground = styled.div`
   background: ${navBackgroundColor};
   z-index: 1;
   padding: 5px;
+
+  @media only screen and (max-width: 1120px) {
+    max-height: 9vh;
+  }
 `;
 
 export const CustomNavbar = styled.div`
@@ -17,6 +21,12 @@ export const CustomNavbar = styled.div`
     height: 55px;
     width: 55px;
   }
+`;
+
+export const Nav = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   ul {
     display: flex;
@@ -44,6 +54,12 @@ export const CustomNavbar = styled.div`
 
     &:hover {
       opacity: 0.9;
+    }
+  }
+
+  @media only screen and (max-width: 1120px) {
+    ul {
+      display: none;
     }
   }
 `;
@@ -93,10 +109,21 @@ export const SideNav = styled.div`
       }
     }
   }
+
+  @media only screen and (max-width: 1330px) {
+    height: 34.2vh;
+  }
+  @media only screen and (max-width: 1120px) {
+    display: none;
+  }
 `;
 
 export const ProductContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 7.7fr;
   grid-gap: 2rem;
+
+  @media only screen and (max-width: 1120px) {
+    margin-left: 2rem;
+  }
 `;

@@ -10,12 +10,15 @@ const soldColor = css`
 export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
   grid-gap: 20px;
   width: 940px;
-  max-width: 100%;
   margin-top: 1rem;
   margin-bottom: 20px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `;
 
 export const ProductContainer = styled.div`
@@ -25,6 +28,10 @@ export const ProductContainer = styled.div`
   width: 600px;
   max-width: 100%;
   margin-top: 1rem;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Card = styled.div`

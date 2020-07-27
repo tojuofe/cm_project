@@ -9,6 +9,12 @@ export const Container = styled.div`
   padding: 50px;
   max-width: 100%;
   width: 1000px;
+
+  @media screen and (max-width: 768px) {
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 10rem;
+  }
 `;
 
 export const Table = styled.table`
@@ -62,6 +68,54 @@ export const Table = styled.table`
 
   tbody tr:hover .edit {
     opacity: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    border: 0;
+
+    th:nth-of-type(9),
+    td:nth-of-type(9) {
+      display: none;
+    }
+
+    tbody tr.priority-200 td:first-of-type {
+      border-left: none;
+    }
+
+    thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: 0.625em;
+    }
+
+    td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: 1rem;
+      text-align: right;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
   }
 `;
 
