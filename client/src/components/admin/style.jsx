@@ -13,7 +13,7 @@ export const Container = styled.div`
   @media screen and (max-width: 768px) {
     width: 300px;
     padding: 20px;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
   }
 `;
 
@@ -127,6 +127,6 @@ export const Card = styled.div`
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 
   @media screen and (max-width: 768px) {
-    width: auto;
+    width: 300px;
   }
 `;
