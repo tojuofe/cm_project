@@ -13,13 +13,13 @@ const CommodityItem = ({ item, getCurrentCommodity, history }) => {
 
   return (
     <tr className='priority-200'>
-      <td>{item.product_name}</td>
-      <td>{item.starting_unit}</td>
-      <td>{item.unit_number}</td>
-      <td>{item.farm_name}</td>
-      <td>{item.buying_price}</td>
-      <td>{item.selling_price}</td>
-      <td>{item.duration}</td>
+      <td data-label='Product Name'>{item.product_name}</td>
+      <td data-label='Starting Unit'>{item.starting_unit}</td>
+      <td data-label='Unit Left'>{item.unit_number}</td>
+      <td data-label='Farm Name'>{item.farm_name}</td>
+      <td data-label='Buying Price'>{item.buying_price}</td>
+      <td data-label='Selling Price'>{item.selling_price}</td>
+      <td data-label='Duration'>{item.duration}</td>
       <td>
         <button className='edit' onClick={editCommodity}>
           <i className='fa fa-edit'></i>

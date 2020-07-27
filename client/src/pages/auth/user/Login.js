@@ -68,7 +68,7 @@ const Login = ({ login, user: { isAuthenticated } }) => {
           <CheckBoxContainer>
             <label className='checkboxContainer'>
               <input type='checkbox' />
-              <span className='cb'>Remember me</span>
+              <span className='cb'>Remember Me</span>
             </label>
 
             <CustomLink to='/forgotpassword'>Forgot Password</CustomLink>

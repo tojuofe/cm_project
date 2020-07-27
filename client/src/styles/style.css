@@ -63,6 +63,22 @@ a {
   margin-bottom: 10px;
 }
 
+.sm-hide {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .btnCount {
+    margin-bottom: 10rem;
+  }
+}
+
+@media only screen and (max-width: 1120px) {
+  .sm-hide {
+    display: flex;
+  }
+}
+
 small {
   display: block;
   font-size: 12px;
@@ -177,7 +193,8 @@ input[type='submit'] {
   padding: 20px 20px 0 10px;
 }
 
-input[type='button']:hover input[type='submit']:hover {
+input[type='button']:hover,
+input[type='submit']:hover {
   opacity: 0.8;
 }
 
@@ -188,25 +205,6 @@ input[type='button']:hover input[type='submit']:hover {
   -o-transform: rotate(30deg);
   transform: rotate(30deg);
 }
-
-/* 
-.checkboxContainer input {
-  display: none;
-}
-
-.checkboxContainer {
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-} */
-/* input:checked + .cb {
-  background-color: #08bb7a;
-} */
-
-/* .input-field input[type='email'].valid {
-  border-bottom: 1px solid #000 !important;
-  box-shadow: 0 1px 0 0 #000 !important;
-} */
 
 #ex3 .fa-stack[data-count]:after {
   position: absolute;
@@ -222,4 +220,62 @@ input[type='button']:hover input[type='submit']:hover {
   text-align: center;
   min-width: 15px;
   font-weight: bold;
+}
+
+/* Media Navigation */
+.nav-toggler {
+  margin: 12px 0 0;
+  cursor: pointer;
+}
+
+.site-navbar {
+  background: rgba(0, 0, 0, 0.75);
+  border-right: 2px solid rgba(200, 200, 200, 0.1);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.7s ease;
+  transform: translateX(-100%);
+}
+
+.site-navbar.show-nav {
+  transform: translateY(0%);
+}
+
+.site-navbar .logout {
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  background-color: #08bb7a;
+  border: 2px solid transparent;
+  color: #fff;
+}
+
+.site-navbar ul {
+  list-style: none;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  line-height: 3;
+}
+
+.site-navbar ul li {
+  margin: 10px;
+}
+
+.site-navbar ul li a {
+  color: #fff;
+}
+
+.site-navbar ul li a:hover {
+  color: #08bb7a;
 }

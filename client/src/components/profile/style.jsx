@@ -17,7 +17,8 @@ export const Card = styled.div`
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 
   @media screen and (max-width: 768px) {
-    width: auto;
+    width: 330px;
+    margin-bottom: 10rem;
   }
 `;
 
@@ -32,4 +33,8 @@ export const FormWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;

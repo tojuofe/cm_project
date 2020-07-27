@@ -18,6 +18,8 @@ export const Card = styled.div`
   width: 500px;
 
   @media screen and (max-width: 768px) {
-    width: auto;
+    width: 330px;
+    padding: 20px;
+    margin-bottom: 5rem;
   }
 `;

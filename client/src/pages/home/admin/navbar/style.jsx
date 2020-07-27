@@ -7,6 +7,10 @@ export const CustomBackground = styled.div`
   background: ${navBackgroundColor};
   z-index: 1;
   padding: 5px;
+
+  @media only screen and (max-width: 1120px) {
+    max-height: 9vh;
+  }
 `;
 
 export const CustomNavbar = styled.div`
@@ -16,35 +20,6 @@ export const CustomNavbar = styled.div`
   img {
     height: 55px;
     width: 55px;
-  }
-
-  ul {
-    display: flex;
-    align-items: center;
-    list-style: none;
-
-    li {
-      padding: 0 7px;
-    }
-
-    li a {
-      color: #333;
-      padding: 10px;
-    }
-
-    h4 {
-      color: #333;
-      padding-right: 10px;
-    }
-  }
-  .logout {
-    background: ${mainColor};
-    color: #f4f4f4;
-    border-radius: 5px;
-
-    &:hover {
-      opacity: 0.9;
-    }
   }
 `;
 
@@ -61,7 +36,7 @@ export const SideNav = styled.div`
   background: #f4f4f4;
   color: #333;
   margin: 3.5rem 0 0 3px;
-  height: 27.4vh;
+  height: 31.7vh;
   border-radius: 3px;
   border: 1px solid #ccc;
 
@@ -94,7 +69,10 @@ export const SideNav = styled.div`
   }
 
   @media screen and (max-width: 1300px) {
-    height: 30vh;
+    // height: 30vh;
+  }
+  @media only screen and (max-width: 1120px) {
+    display: none;
   }
 `;
 
@@ -102,4 +80,45 @@ export const ProductContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 7.7fr;
   grid-gap: 2rem;
+`;
+
+export const Nav = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    li {
+      padding: 0 7px;
+    }
+
+    li a {
+      color: #333;
+      padding: 10px;
+    }
+
+    h4 {
+      color: #333;
+      padding-right: 10px;
+    }
+  }
+  .logout {
+    background: ${mainColor};
+    color: #f4f4f4;
+    border-radius: 5px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  @media only screen and (max-width: 1120px) {
+    ul {
+      display: none;
+    }
+  }
 `;

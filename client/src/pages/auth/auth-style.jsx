@@ -14,6 +14,7 @@ export const Container = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    height: 750px;
   }
 `;
 
@@ -28,7 +29,8 @@ export const Card = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    width: auto;
+    width: 330px;
+    margin-bottom: 10rem;
   }
 `;
 
@@ -38,6 +40,10 @@ export const CustomCard = styled.div`
   border-radius: 3px;
   width: 500px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
 `;
 
 export const ImageContainer = styled.div`
