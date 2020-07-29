@@ -22,8 +22,8 @@ const Navbar = () => (
         </NavLink>
       </li>
       <li>
-        <NavLink to='menu4' activeClassName='current' exact>
-          Menu 4
+        <NavLink to='/admin/investors' activeClassName='current' exact>
+          All Investors
         </NavLink>
       </li>
     </ul>

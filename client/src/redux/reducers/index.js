@@ -9,11 +9,12 @@ import profile from '../profile/profile.reducer';
 import cart from '../cart/cart.reducer';
 import wallet from '../wallet/wallet.reducer';
 import stall from '../stall/stall.reducer';
+import investor from '../investor/investor.reducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['commodity', 'cart'],
+  whitelist: ['commodity', 'cart', 'investor'],
 };
 
 const rootReducer = combineReducers({
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   cart,
   wallet,
   stall,
+  investor,
 });
 
 export default persistReducer(persistConfig, rootReducer);

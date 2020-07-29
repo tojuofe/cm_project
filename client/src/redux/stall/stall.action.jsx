@@ -1,4 +1,4 @@
-import { GET_STALL, STALL_ERROR } from './stall.types';
+import { GET_STALL, GET_STALLS, STALL_ERROR } from './stall.types';
 import axios from 'axios';
 
 // GET USER STALL
@@ -8,6 +8,23 @@ export const getStall = () => async (dispatch) => {
 
     dispatch({
       type: GET_STALL,
+      payload: res.data.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: STALL_ERROR,
+      payload: err,
+    });
+  }
+};
+
+// GET ALL STALL
+export const getStalls = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/stall');
+
+    dispatch({
+      type: GET_STALLS,
       payload: res.data.data,
     });
   } catch (err) {

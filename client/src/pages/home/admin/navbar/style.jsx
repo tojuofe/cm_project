@@ -36,7 +36,7 @@ export const SideNav = styled.div`
   background: #f4f4f4;
   color: #333;
   margin: 3.5rem 0 0 3px;
-  height: 31.7vh;
+  height: 39.7vh;
   border-radius: 3px;
   border: 1px solid #ccc;
 
@@ -78,7 +78,7 @@ export const SideNav = styled.div`
 
 export const ProductContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 7.7fr;
+  grid-template-columns: 1fr 6fr;
   grid-gap: 2rem;
 `;
 

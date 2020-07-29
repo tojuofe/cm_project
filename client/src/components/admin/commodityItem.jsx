@@ -20,10 +20,8 @@ const CommodityItem = ({ item, getCurrentCommodity, history }) => {
       <td data-label='Buying Price'>{item.buying_price}</td>
       <td data-label='Selling Price'>{item.selling_price}</td>
       <td data-label='Duration'>{item.duration}</td>
-      <td>
-        <button className='edit' onClick={editCommodity}>
-          <i className='fa fa-edit'></i>
-        </button>
+      <td className='edit' onClick={editCommodity}>
+        <i className='fa fa-edit'></i>
       </td>
     </tr>
   );

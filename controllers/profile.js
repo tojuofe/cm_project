@@ -39,6 +39,23 @@ exports.getProfile = async (req, res, next) => {
   }
 };
 
+// @desc    GET PROFILE BY ID
+// @route   GET /api/profile/:id
+// @access  Private
+exports.getProfileById = async (req, res, next) => {
+  try {
+    let profile = await Profile.findOne({ user: req.params.id });
+
+    res.status(200).json({ success: true, data: profile });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      success: false,
+      error: 'Server Error',
+    });
+  }
+};
+
 // @desc    CREATE AND UPDATE PROFILE
 // @route   POST /api/profile
 // @access  Private

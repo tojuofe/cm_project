@@ -78,9 +78,9 @@ export const SideNav = styled.div`
   color: #333;
   margin: 3.5rem 0 0 3px;
   border-radius: 3px;
+  border-bottom: 1px solid #ccc;
   border: 1px solid #ccc;
-  overflow: hidden;
-  height: 34.2vh;
+  // height: 34.2vh;
 
   ul {
     list-style: none;
@@ -110,9 +110,10 @@ export const SideNav = styled.div`
     }
   }
 
-  @media only screen and (max-width: 1330px) {
-    height: 34.2vh;
-  }
+  // @media only screen and (max-width: 1330px) {
+  //   height: 34.2vh;
+  // }
+
   @media only screen and (max-width: 1120px) {
     display: none;
   }
@@ -120,7 +121,7 @@ export const SideNav = styled.div`
 
 export const ProductContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 7.7fr;
+  grid-template-columns: 1fr 6fr;
   grid-gap: 2rem;
 
   @media only screen and (max-width: 1120px) {

@@ -25,7 +25,7 @@ exports.getUserAuth = async (req, res, next) => {
 // @access    Private
 exports.getUsers = async (req, res, next) => {
   try {
-    const user = await User.find();
+    const user = await User.find().select('-password');
 
     return res.status(200).json({ success: true, data: user });
   } catch (err) {

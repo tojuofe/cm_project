@@ -22,6 +22,9 @@ const CreateCommodity = lazy(() => import('./home/admin/createCommodity'));
 const EditCommodity = lazy(() => import('./home/admin/editCommodity'));
 const CommodityList = lazy(() => import('./home/admin/commodityList'));
 const UserList = lazy(() => import('./home/admin/userList'));
+const UserProfile = lazy(() => import('./investor/userProfile'));
+const InvestorsList = lazy(() => import('./home/admin/investorsList'));
+const InvestorView = lazy(() => import('./investor/investorView'));
 
 // User Component
 const UserLogin = lazy(() => import('./auth/user/Login'));
@@ -74,6 +77,17 @@ const Routes = ({ admin: { isAuthenticated, user }, commodityItem }) => (
             component={CreateCommodity}
           />
           <PrivateRouteAdmin exact path='/admin/users' component={UserList} />
+          <PrivateRouteAdmin exact path='/admin/user' component={UserProfile} />
+          <PrivateRouteAdmin
+            exact
+            path='/admin/investors'
+            component={InvestorsList}
+          />
+          <PrivateRouteAdmin
+            exact
+            path='/admin/investor'
+            component={InvestorView}
+          />
           <PrivateRouteAdmin
             exact
             path='/admin/edit'

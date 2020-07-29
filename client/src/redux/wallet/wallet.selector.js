@@ -7,6 +7,11 @@ export const selectWalletItem = createSelector(
   (wallet) => wallet.walletItem
 );
 
+export const selectWalletItems = createSelector(
+  [selectWallet],
+  (wallet) => wallet.walletItems
+);
+
 // export const selectWalletItemCount = createSelector(
 //   [selectWalletItem],
 //   (walletItems) =>
